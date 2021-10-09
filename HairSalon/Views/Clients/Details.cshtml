@@ -1,0 +1,18 @@
+@{
+  Layout = "_Layout";
+}
+
+@model HairSalon.Models.Client
+
+<h2>Clint Details</h2>
+<h3>@Html.DisplayFor(model => model.Type): @Html.DisplayFor(model => model.Type)</h3>
+
+<h2>Stylists:</h2>
+@foreach(var stylist in ViewBag.Stylists)
+{
+  <li>@Html.ActionLink($"{stylist.Name}", "Details", "Restaurants", new { id = stylist.StylistId })</li>
+}
+
+<p>@Html.ActionLink("Edit Category", "Edit", new { id = Model.ClientId })</p>
+<p>@Html.ActionLink("Delete Category", "Delete", new { id = Model.ClientId })</p>
+<p>@Html.ActionLink("Back to list", "Index")</p>
