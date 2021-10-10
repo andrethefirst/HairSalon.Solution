@@ -38,13 +38,13 @@ namespace HairSalon.Controllers
     {
       List<Stylist> stylistList = _db.Stylists.ToList();
       ViewBag.Stylists = stylistList;
-      Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
+      Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientsId == id);
       return View(thisClient);
     }
 
     public ActionResult Edit(int id)
     {
-      var thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
+      var thisClient = _db.Clients.FirstOrDefault(client => client.ClientsId == id);
       return View(thisClient);
     }
 
@@ -58,7 +58,7 @@ namespace HairSalon.Controllers
 
     public ActionResult Delete(int id)
     {
-      var thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
+      var thisClient = _db.Clients.FirstOrDefault(client => client.ClientsId == id);
       _db.Clients.Remove(thisClient);
       _db.SaveChanges();
       return RedirectToAction("Index");

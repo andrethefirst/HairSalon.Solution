@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `clients`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `clients` (
-  `ClientsId` int NOT NULL,
+  `ClientsId` int NOT NULL AUTO_INCREMENT,
   `Type` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ClientsId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -49,9 +49,9 @@ CREATE TABLE `stylists` (
   `StylistId` int NOT NULL AUTO_INCREMENT,
   `Name` varchar(255) DEFAULT NULL,
   `Description` varchar(255) DEFAULT NULL,
-  `ClientsId` int DEFAULT NULL,
+  `ClientsId` int NOT NULL,
   PRIMARY KEY (`StylistId`),
-  KEY `Clients_Id_idx` (`ClientsId`),
+  KEY `ClientsId_idx` (`ClientsId`),
   CONSTRAINT `ClientsId` FOREIGN KEY (`ClientsId`) REFERENCES `clients` (`ClientsId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -74,4 +74,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-08 21:48:51
+-- Dump completed on 2021-10-09 16:55:47

@@ -20,6 +20,7 @@ namespace HairSalon.Controllers
     {
       List<Stylist> model = _db.Stylists.Include(stylist => stylist.Clients).ToList();
       return View(model);
+  
     }
 
     public ActionResult Create()
