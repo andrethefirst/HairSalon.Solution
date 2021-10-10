@@ -17,7 +17,7 @@ https://github.com/andrethefirst/HairSalon.Solution
 
 ## Schema
 
-![Screenshot](hairsalon.png)
+![Screenshot](hairsalon.PNG)
 
 ## Setup/Installation Requirements
 
