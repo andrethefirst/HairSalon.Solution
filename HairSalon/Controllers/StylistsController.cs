@@ -18,9 +18,8 @@ namespace HairSalon.Controllers
 
     public ActionResult Index()
     {
-      List<Stylist> model = _db.Stylists.Include(stylist => stylist.Clients).ToList();
+      List<Stylist> model = _db.Stylists.ToList();
       return View(model);
-  
     }
 
     public ActionResult Create()
@@ -45,19 +44,17 @@ namespace HairSalon.Controllers
 
     public ActionResult Edit(int id)
     {
-      var thisStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id);
-      ViewBag.ClientId = new SelectList(_db.Clients, "ClientId", "Type");
-      return View(thisStylist);
+      var thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
+      return View(thisClient);
     }
 
     [HttpPost]
-    public ActionResult Edit(Stylist stylist)
+    public ActionResult Edit(Client client)
     {
-      _db.Entry(stylist).State = EntityState.Modified;
+      _db.Entry(client).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
     public ActionResult Delete(int id)
     {
       var thisStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id);

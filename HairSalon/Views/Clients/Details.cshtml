@@ -11,9 +11,9 @@
 <h2>Stylists:</h2>
 @foreach(var stylist in ViewBag.Stylists)
 {
-  <li>@Html.ActionLink($"{stylist.Name}", "Details", "Restaurants", new { id = stylist.StylistId })</li>
+  <li>@Html.ActionLink($"{stylist.Name}", "Details", "Stylists", new { id = stylist.StylistId })</li>
 }
 
-<p>@Html.ActionLink("Edit Category", "Edit", new { id = Model.ClientsId })</p>
-<p>@Html.ActionLink("Delete Category", "Delete", new { id = Model.ClientsId })</p>
+<p>@Html.ActionLink("Edit Category", "Edit", new { id = Model.ClientId })</p>
+<p>@Html.ActionLink("Delete Category", "Delete", new { id = Model.ClientId })</p>
 <p>@Html.ActionLink("Back to Clients", "Index")</p>
